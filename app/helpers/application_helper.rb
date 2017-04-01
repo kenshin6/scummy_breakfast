@@ -7,4 +7,14 @@ module ApplicationHelper
       page_title
     end
   end
+
+  def markdown(text)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, 
+                                                                strikethrough: true, filter_html: true,
+                                                                hardwrap: true, highlight: true,
+                                                                fenced_code_blocks: true, lax_spacing: true,
+                                                                underline: true)
+
+    markdown.render(text).html_safe
+  end
 end
