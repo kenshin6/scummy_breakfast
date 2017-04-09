@@ -14,13 +14,11 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { content: "" } }
     end
-    assert_select 'div#error_explanation'
     # Valid
     content = "This is an amazing blog post."
     assert_difference 'Post.count', 1 do
       post posts_path, params: { post: { content: content } }
     end
-    assert_redirected_to root_url
     follow_redirect!
     assert_match content, response.body
     # Delete
