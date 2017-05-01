@@ -2,6 +2,8 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+    <link href="<%= request.original_url%>" rel='canonical'>
+    <meta content="<%= sanitize(@post.try(:content)) || 'The best blog in the world' %>" name='description'>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>

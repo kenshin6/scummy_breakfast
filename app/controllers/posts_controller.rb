@@ -24,11 +24,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
       flash[:success] = "Post updated"
       redirect_to @post
@@ -61,6 +59,6 @@ class PostsController < ApplicationController
     end
 
     def get_post
-      @post = Post.find(params[:id])
+      @post = Post.friendly.find(params[:id])
     end
 end

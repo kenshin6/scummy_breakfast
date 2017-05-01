@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* colors */
+
+$main-color: #FFCA28;
+$light-main-color: #FFECB3;
 /* universal */
 
 body {
@@ -22,10 +26,15 @@ textarea {
   }
 }
 
+a {
+  color: $main-color;
+}
+
 /* header */
 
 #logo {
   float: left;
+  margin-left: 10px;
   margin-right: 10px;
   font-size: 1.7em;
   text-transform: uppercase;
@@ -36,6 +45,27 @@ textarea {
   text-decoration: none;
   }
 }
+
+li#new_post_button {
+  background-color: $main-color;
+  a {
+    color: white;
+  }
+}
+
+.navbar-default .navbar-nav > li > a{
+  color: $main-color;
+}
+
+.navbar-default {
+  background-color: white;
+  border-color: $light-main-color;
+  box-shadow: 0 0 10px $gray-light;
+  a {
+    color: $main-color;
+  }
+}
+
 
 /* mixins, etc */
 
@@ -142,7 +172,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $main-color;
   }
 }
 
@@ -156,7 +186,7 @@ input {
   }
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid $light-main-color;
   }
   .user {
     margin-top: 5em;
@@ -164,7 +194,7 @@ input {
   }
   .content {
     display: block;
-    margin-left: 60px; 
+    /*margin-left: 60px;*/ 
     img {
       display: block;
       padding: 5px 0;
@@ -189,6 +219,11 @@ input {
     color: $gray-light;
     display: block;
     margin-left: 60px;
+  }
+  .author_box {
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .gravatar {
     float: left;

@@ -1,9 +1,11 @@
 <li id= "post-<%= post.id %>">
-  <%= link_to gravatar_for(post.user, size: 50), post.user %>
-  <span class = "user"><%= link_to post.user.name, post.user %></span>
+  <h2><%= link_to post.title, post_path(post)%></h2>
+  <div class="author_box">
+    <span class = "user" style="display:inline-block; margin: 0px"><%= link_to post.user.name, post.user %></span>
+    <span class = "timestamp" style="display:inline-block; margin: 0px"> | <%= time_ago_in_words(post.created_at) %> ago. </span>
+  </div>
   <span class = "content"><%= markdown(post.content)%></span>
   <span class = "timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
     <%= link_to "Read more >>", post_path(post) %>
     <% if current_user?(post.user) %>
       <%= link_to "edit", edit_post_path(post) %>
