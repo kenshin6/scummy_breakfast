@@ -1,10 +1,15 @@
-<div class ="center jumbotron">
-  <h1>Welcome home!</h1>
-  <p>Gonna try and make this into a blog type guy. Please hold for a moment.<p>
-  <p>
-    <%= link_to("You can check out my current page here.", "http://kenshin6.github.io/", target: "_blank") %>
-  </p>
-
-  <%=link_to "Sign up", signup_path, class: "btn btn-lg btn-primary"%>
-
+<% unless logged_in? %>
+  <%= render 'static_pages/not_logged_in_home' %>
+<% end %>
+<div class="row">
+  <div class="col-md-12">
+    <% if @feed_items.any? %>
+      <ol class="posts">
+        <%= render @feed_items %>
+      </ol>
+      <div class="pager">
+        <%= will_paginate @feed_items %>
+      </div>
+    <% end %>
+  </div>
 </div>

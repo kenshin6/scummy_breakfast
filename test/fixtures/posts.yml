@@ -1,0 +1,58 @@
+shimo:
+  title: "Shimo"
+  slug: "shimo"
+  content: "Shimo rules!"
+  created_at: <%= 10.minutes.ago %>
+  user: john
+
+shibuya:
+  title: "Shibuya"
+  slug: "shibuya"
+  content: "Shibuya also rules!"
+  created_at: <%= 3.years.ago %>
+  user: john
+
+markdown:
+  title: "Markdown"
+  slug: "markdown"
+  content: "HTML in markdown tables?!"
+  created_at: <%= 2.hours.ago %>
+  user: john
+
+most_recent:
+  title: "tests"
+  slug: "tests"
+  content: "For the tests."
+  created_at: <%= Time.zone.now %>
+  user: john
+
+<% 30.times do |n| %>
+post_<%= n %>:
+  title: <%= n %>
+  slug: <%= n %>
+  content: "Test"
+  created_at: <%= 42.days.ago %>
+  user: john
+<% end %>
+
+dogs:
+  content: "I love dogs"
+  created_at: <%= 2.months.ago %>
+  user: steve
+
+cats:
+  content: "I love cats"
+  created_at: <%= 3.months.ago %>
+  user: lana
+
+bugs:
+  title: "bugs"
+  slug: "bugs"
+  content: "I hate bugs"
+  created_at: <%= 4.weeks.ago %>
+  user: steve
+
+frogs:
+  content: "I eat frogs"
+  created_at: <%= 2.weeks.ago %>
+  user: malory

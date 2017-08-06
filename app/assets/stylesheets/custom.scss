@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* colors */
+
+$main-color: #FFCA28;
+$light-main-color: #FFECB3;
 /* universal */
 
 body {
@@ -22,10 +26,15 @@ textarea {
   }
 }
 
+a {
+  color: $main-color;
+}
+
 /* header */
 
 #logo {
   float: left;
+  margin-left: 10px;
   margin-right: 10px;
   font-size: 1.7em;
   text-transform: uppercase;
@@ -36,6 +45,27 @@ textarea {
   text-decoration: none;
   }
 }
+
+li#new_post_button {
+  background-color: $main-color;
+  a {
+    color: white;
+  }
+}
+
+.navbar-default .navbar-nav > li > a{
+  color: $main-color;
+}
+
+.navbar-default {
+  background-color: white;
+  border-color: $light-main-color;
+  box-shadow: 0 0 5px $light-main-color;
+  a {
+    color: $main-color;
+  }
+}
+
 
 /* mixins, etc */
 
@@ -53,6 +83,10 @@ textarea {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+.pager {
+  text-align: center;
 }
 
 /* sidebar */
@@ -142,6 +176,92 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $main-color;
+  }
+}
+
+/* Posts */
+
+.posts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+  }
+  .post_tab {
+    border-bottom: 1px solid $light-main-color;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    font-size: 18px;
+    font-family: Georgia,Times,Times New Roman,serif;
+    display: block;
+    /*margin-left: 60px;*/ 
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+    th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    }
+    tr:nth-child(even) {
+    background-color: #f2f2f2;
+    padding: 5px;
+    }
+    th, td {
+    border-bottom: 1px solid #ddd;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .author_box {
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+.main_image {
+  align: "middle";
+}
+
+/* About */
+
+.about {
+  .scummy_def {
+  border-bottom: 1px solid $light-main-color;
+  }
+  .video {
+  margin-top: 5px;
   }
 }
