@@ -14,6 +14,12 @@ class PostsController < ApplicationController
       render 'preview'
     else
       if @post.save
+        @post.images.create!(file: params[:post][:main_image], main: true) if params[:post][:main_image]
+        if params[:post][:image_data]
+          params[:post][:image_data].each do |file|
+            @post.images.create!(file: file)
+          end
+        end
         flash[:success] = "Post created!"
         redirect_to @post
       else
@@ -50,11 +56,11 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:content, :title)
+      params.require(:post).permit(:content, :title, image_data: [])
     end
 
     def correct_user
-      @post = current_user.posts.find_by(id: params[:id])
+      @post = current_user.posts.friendly.find(params[:id])
       redirect_to root_url if @post.nil?
     end
 

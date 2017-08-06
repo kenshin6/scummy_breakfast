@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root 'static_pages#home'
   get 'contact',   to: 'static_pages#contact', as: 'contact'
   get 'about',     to: 'static_pages#about',   as: 'about'

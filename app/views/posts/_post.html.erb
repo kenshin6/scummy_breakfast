@@ -1,16 +1,29 @@
 <li id= "post-<%= post.id %>">
-  <h2><%= link_to post.title, post_path(post)%></h2>
-  <div class="author_box">
-    <span class = "user" style="display:inline-block; margin: 0px"><%= link_to post.user.name, post.user %></span>
-    <span class = "timestamp" style="display:inline-block; margin: 0px"> | <%= time_ago_in_words(post.created_at) %> ago. </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 post_tab">
+        <div class="row">
+          <div class="col-md-3">  
+            <% if post.main_image.present? %>
+              <%= link_to image_tag(post.main_image.last.file.thumb, class: "main_image"), post_path(post) %>
+            <% end %>
+          </div>
+          <div class="col-md-9">
+            <h2><%= link_to post.title, post_path(post)%></h2>
+            <div class="author_box">
+              <span class = "user" style="display:inline-block; margin: 0px"><%= link_to post.user.name, post.user %></span>
+              <span class = "timestamp" style="display:inline-block; margin: 0px"> | <%= time_ago_in_words(post.created_at) %> ago. </span>
+            </div>
+            <span class = "timestamp">
+              <% if current_user?(post.user) %>
+                <%= link_to "edit", edit_post_path(post) %>
+                <%= link_to "delete", post, method: :delete,
+                                            data: { confirm: "You sure?" } %>
+              <% end %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <span class = "content"><%= markdown(post.content)%></span>
-  <span class = "timestamp">
-    <%= link_to "Read more >>", post_path(post) %>
-    <% if current_user?(post.user) %>
-      <%= link_to "edit", edit_post_path(post) %>
-      <%= link_to "delete", post, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-    <% end %>
-  </span>
 </li>

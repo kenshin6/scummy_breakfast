@@ -1,14 +1,25 @@
 <% provide(:title, @post.title) %>
 <div class="posts">
-  <h1><%= @post.title %></h1>
-
-  <div class="author_box" style="text-align:center;">
-    <span class = "user" style="display:inline-block; margin: 0px"><%= link_to @post.user.name, @post.user %></span>
-    <span class = "timestamp" style="display:inline-block; margin: 0px"> | <%= time_ago_in_words(@post.created_at) %> ago. </span>
-  </div>
-
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class=".col-xs-12 .col-md-8">
+      <div class="span6" style="float: none; margin: 0 auto;">
+        <h1><%= @post.title %></h1>
+        <div class="author_box">
+          <span class = "user" style="display:inline-block; margin: 0px"><%= link_to @post.user.name, @post.user %></span>
+          <span class = "timestamp" style="display:inline-block; margin: 0px"> | <%= time_ago_in_words(@post.created_at) %> ago. </span>
+        </div>
+      </div>
+    </div>
+  <div>
+  <div class="row">
+    <div class=".col-xs-12 .col-md-8">
+      <div class="span6" style="float: none; margin: 0 auto;">
+        <%= image_tag @post.main_image.last.file.large, class: "main_image" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class=".col-xs-12 .col-md-8">
       <li id= "post-<%= @post.id %>">
         <span class = "content"><%= markdown(@post.content)%></span>
         <span class = "timestamp" style="text-align:center;">
@@ -24,7 +35,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6 col-md-offset-3" style="margin-top:10px;">
+    <div class=".col-xs-12 .col-md-8" style="margin-top:10px;">
       <%= link_to gravatar_for(@post.user, size: 50), @post.user %>
       <span class = "user"><%= link_to @post.user.name, @post.user %></span>
     </div>

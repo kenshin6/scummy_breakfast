@@ -17,4 +17,8 @@ module ApplicationHelper
 
     markdown.render(text).html_safe
   end
+
+  def writer_access?
+    logged_in? && current_user.admin?
+  end
 end

@@ -13,6 +13,8 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true,length: { minimum: 6 }, allow_nil: true
+
+  scope :admin, -> { where(admin: true) }
   
   # Return hash digest of string
   def User.digest(string)
@@ -69,6 +71,10 @@ class User < ApplicationRecord
 
   def feed
     Post.where("user_id = ?", id)
+  end
+
+  def admin?
+    admin == true
   end
 
   private

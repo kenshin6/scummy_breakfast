@@ -1,10 +1,11 @@
 class Post < ApplicationRecord
   extend FriendlyId
-  mount_uploader :image, ImageUploader
-
   friendly_id :title, use: :slugged
 
   belongs_to :user
+  has_many :images
+  attr_accessor :image_data
+
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :content, presence: true
@@ -14,5 +15,9 @@ class Post < ApplicationRecord
       :title,
       [:title, :content]
     ]
+  end
+
+  def main_image
+    images.where(main: true)
   end
 end

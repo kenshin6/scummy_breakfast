@@ -60,7 +60,7 @@ li#new_post_button {
 .navbar-default {
   background-color: white;
   border-color: $light-main-color;
-  box-shadow: 0 0 10px $gray-light;
+  box-shadow: 0 0 5px $light-main-color;
   a {
     color: $main-color;
   }
@@ -83,6 +83,10 @@ li#new_post_button {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+.pager {
+  text-align: center;
 }
 
 /* sidebar */
@@ -181,11 +185,10 @@ input {
 .posts {
   list-style: none;
   padding: 0;
-  h1 {
-    text-align: center;
-  }
   li {
     padding: 10px 0;
+  }
+  .post_tab {
     border-bottom: 1px solid $light-main-color;
   }
   .user {
@@ -193,6 +196,8 @@ input {
     padding-top: 0;
   }
   .content {
+    font-size: 18px;
+    font-family: Georgia,Times,Times New Roman,serif;
     display: block;
     /*margin-left: 60px;*/ 
     img {
@@ -243,5 +248,20 @@ span.picture {
   margin-top: 10px;
   input {
     border: 0;
+  }
+}
+
+.main_image {
+  align: "middle";
+}
+
+/* About */
+
+.about {
+  .scummy_def {
+  border-bottom: 1px solid $light-main-color;
+  }
+  .video {
+  margin-top: 5px;
   }
 }

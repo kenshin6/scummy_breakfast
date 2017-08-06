@@ -3,6 +3,10 @@
   <div class="field">
     <%= f.text_field :title, placeholder: "Add title...", rows: "15", id: "post_title" %>
     <%= f.text_area :content, placeholder: "Compose new post...", rows: "15", id: "post_content" %>
+    <p>Main image</p>
+    <%= f.file_field :main_image %>
+    <p>Other images. Final image: <%= Image.last.file.url %></p>
+    <%= f.file_field :image_data, multiple: true %>
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
   <%= f.submit "Preview", name: 'preview_button' %>
