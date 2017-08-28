@@ -14,7 +14,9 @@
   <div class="row">
     <div class=".col-xs-12 .col-md-8">
       <div class="span6" style="float: none; margin: 0 auto;">
-        <%= image_tag @post.main_image.last.file.large, class: "main_image" %>
+        <% if @post.main_image.present? %>
+          <%= image_tag @post.main_image.last.file.large, class: "main_image" %>
+        <% end %>
       </div>
     </div>
   </div>

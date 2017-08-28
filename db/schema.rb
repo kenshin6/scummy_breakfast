@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170806071513) do
+ActiveRecord::Schema.define(version: 20170812003319) do
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_type"
+    t.integer  "resource_id"
+    t.string   "author_type"
+    t.integer  "author_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -43,6 +57,22 @@ ActiveRecord::Schema.define(version: 20170806071513) do
     t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_taggings_on_post_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name"
   end
 
   create_table "users", force: :cascade do |t|

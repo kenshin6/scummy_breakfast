@@ -56,12 +56,15 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:content, :title, image_data: [])
+      params.require(:post).permit(:content, :title, :all_tags, image_data: [])
     end
 
     def correct_user
-      @post = current_user.posts.friendly.find(params[:id])
-      redirect_to root_url if @post.nil?
+      begin
+        @post = current_user.posts.friendly.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        redirect_to root_url
+      end
     end
 
     def get_post

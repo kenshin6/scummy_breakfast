@@ -30,7 +30,7 @@ a {
   color: $main-color;
 }
 
-/* header */
+/* header 
 
 #logo {
   float: left;
@@ -45,6 +45,7 @@ a {
   text-decoration: none;
   }
 }
+*/
 
 li#new_post_button {
   background-color: $main-color;
@@ -55,17 +56,35 @@ li#new_post_button {
 
 .navbar-default .navbar-nav > li > a{
   color: $main-color;
+  font-size: 18px;
+  font-family: Georgia,Times,Times New Roman,serif; 
 }
 
 .navbar-default {
   background-color: white;
   border-color: $light-main-color;
-  box-shadow: 0 0 5px $light-main-color;
+  box-shadow: 0 0 1px $light-main-color;
   a {
     color: $main-color;
   }
 }
 
+.navbar-default .navbar-toggle {
+  border-color: $main-color;
+  .icon-bar {
+    background-color: $main-color;
+  }
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 7px;
+  margin-left: 10px;
+  width: auto;
+}
 
 /* mixins, etc */
 
@@ -235,6 +254,11 @@ input {
     margin-right: 10px;
     margin-top: 5px;
   }
+}
+
+.about {
+  font-size: 18px;
+  font-family: Georgia,Times,Times New Roman,serif;
 }
 
 aside {

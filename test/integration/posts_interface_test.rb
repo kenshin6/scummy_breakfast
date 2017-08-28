@@ -22,7 +22,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_match content, response.body
     # Delete
-    assert_select 'a', text: 'delete'
+    assert_select 'a', text: 'Delete'
     first_post = @user.posts.paginate(page: 1).first
     assert_difference 'Post.count', -1 do
       delete post_path(first_post)

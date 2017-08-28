@@ -7,15 +7,9 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "A blog about coding, climbing, and Japan."
   end
 
-  test "should get contact" do
-    get contact_path
-    assert_response :success
-    assert_select "title", "Contact me!"
-  end
-
   test "should get about" do
     get about_path
     assert_response :success
-    assert_select "title", "Coder, climber, ex-pat in Japan."
+    assert_select "title", "Coding, climbing, thoughts, and insights from the heart of Japan."
   end
 end

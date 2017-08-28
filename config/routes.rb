@@ -16,4 +16,5 @@ Rails.application.routes.draw do
       get 'preview'
     end
   end
+  get 'tags/:tag', to: 'static_pages#home', as: "tag"
 end
