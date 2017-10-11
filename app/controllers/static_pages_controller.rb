@@ -1,12 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
-    if logged_in?
-      @post = current_user.posts.build
-    end
     if params[:tag]
-      @feed_items = Post.tagged_with(params[:tag]).paginate(page: params[:page])
+      @feed_items = Post.includes(:tags, :images, :user).tagged_with(params[:tag]).paginate(page: params[:page])
     else
-      @feed_items = Post.all.paginate(page: params[:page])
+      @feed_items = Post.includes(:tags, :images, :user).paginate(page: params[:page])
     end
   end
 
