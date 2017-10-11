@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  TITLE_LENGTH = 75
+
   belongs_to :user
   has_many :images
   has_many :taggings

@@ -1,10 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 /* colors */
 
 $main-color: #FFCA28;
 $light-main-color: #FFECB3;
+$light-grey: #EEEEEE;
 /* universal */
 
 body {
@@ -47,6 +47,14 @@ a {
 }
 */
 
+header {
+  height: 40px;
+  position: fixed;
+  top: 0;
+  transition: top 0.2s ease-in-out;
+  width: 100%;
+}
+
 li#new_post_button {
   background-color: $main-color;
   a {
@@ -62,7 +70,7 @@ li#new_post_button {
 
 .navbar-default {
   background-color: white;
-  border-color: $light-main-color;
+  border-color: $light-grey;
   box-shadow: 0 0 1px $light-main-color;
   a {
     color: $main-color;
@@ -84,6 +92,10 @@ li#new_post_button {
   padding: 7px;
   margin-left: 10px;
   width: auto;
+}
+
+.nav-up {
+  top: -50px;
 }
 
 /* mixins, etc */
@@ -205,10 +217,10 @@ input {
   list-style: none;
   padding: 0;
   li {
-    padding: 10px 0;
+    padding: 0px 20px 0px 10px;
   }
   .post_tab {
-    border-bottom: 1px solid $light-main-color;
+    border-bottom: 1px solid $light-grey;
   }
   .user {
     margin-top: 5em;
@@ -276,7 +288,7 @@ span.picture {
 }
 
 .main_image {
-  align: "middle";
+  vertical-align: "middle";
 }
 
 /* About */
@@ -289,3 +301,40 @@ span.picture {
   margin-top: 5px;
   }
 }
+
+/* Sidebars */
+.sidebar {
+  border-left: 1px solid $light-grey;
+  height: 100%;
+}
+
+.tag_links {
+  width: 35%;
+  border-bottom: 1px solid $light-grey;
+  list-style: none;
+  padding: 3px;
+}
+
+.tab_img {
+  padding: 5px;
+}
+
+.tags_table {
+  padding: 0px;
+}
+
+@media (max-width: 991px) {
+  .xs_sm_text_center {
+    text-align: center;
+  }
+}
+
+
+.counter {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+#post_title {
+  margin-bottom: 3px;
+} 

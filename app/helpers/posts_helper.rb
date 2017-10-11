@@ -9,4 +9,9 @@ module PostsHelper
     end
     links.join(", ")
   end
+
+  def tag_link_with_count(tag)
+    tag_count = tag.posts.count
+    link_to (tag.name + " (#{tag_count})"), tag_path(tag.name)
+  end
 end

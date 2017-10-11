@@ -1,7 +1,10 @@
 <%= form_for(@post) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_field :title, placeholder: "Add title...", rows: "15", id: "post_title" %>
+    <%= f.text_field :title, placeholder: "Add title...", rows: "15", maxlength: Post::TITLE_LENGTH, id: "post_title" %>
+    <div class="counter">
+      <span id="title_counter" data-maximum-length="<%= Post::TITLE_LENGTH %>">0</span>/<span><%= Post::TITLE_LENGTH %></span>
+    </div>
     <%= f.text_area :content, placeholder: "Compose new post...", rows: "15", id: "post_content" %>
     <div class="large-10 large-centered columns">
       <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>

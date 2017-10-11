@@ -9,10 +9,12 @@
                                               'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="container">
+    <div class="middle">
       <% flash.each do |type, msg| %>
         <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
       <% end %>

@@ -1,15 +1,20 @@
 <% unless logged_in? %>
   <%= render 'static_pages/not_logged_in_home' %>
 <% end %>
-<div class="row">
-  <div class="col-md-12">
-    <% if @feed_items.any? %>
-      <ol class="posts">
-        <%= render @feed_items %>
-      </ol>
-      <div class="pager">
-        <%= will_paginate @feed_items %>
-      </div>
-    <% end %>
+<div class='container-fluid' id='feed-container'>
+  <div class="row">
+    <div class="col-md-9 col-sm-12 col-xs-12 main_content">
+      <% if @feed_items.any? %>
+        <ol class="posts">
+          <%= render @feed_items %>
+        </ol>
+        <div class="pager">
+          <%= will_paginate @feed_items %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3 sidebar">
+      <%= render 'sidebar_home' %>
+    </div>
   </div>
-</div>
+<div>
