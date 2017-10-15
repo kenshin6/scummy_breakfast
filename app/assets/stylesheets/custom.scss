@@ -134,6 +134,11 @@ li#new_post_button {
 
 /* sidebar */
 
+.user_info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 aside {
   section.user_info {
     margin-top: 20px;
@@ -161,7 +166,6 @@ aside {
 }
 
 .gravatar {
-  float: left;
   margin-right: 10px;
 }
 
@@ -350,4 +354,8 @@ span.picture {
 
 #post_title {
   margin-bottom: 3px;
+}
+
+.pager_container {
+  text-align: center;
 } 
