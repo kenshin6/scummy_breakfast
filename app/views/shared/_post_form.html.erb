@@ -11,7 +11,7 @@
     </div>
     <p>Main image</p>
     <%= f.file_field :main_image %>
-    <p>Other images. Final image: <%= Image.last.file.url %></p>
+    <p>Other images. Final image: <%= Image.last.try(:file).try(:url) %></p>
     <%= f.file_field :image_data, multiple: true %>
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
