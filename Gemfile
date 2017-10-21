@@ -19,6 +19,9 @@ gem 'mini_magick'
 gem 'friendly_id',             '~> 5.1.0'
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'activeadmin'
+gem 'figaro'
+gem 'fog-aws'
+gem 'fog'
 
 group :development, :test do
   gem 'sqlite3', '1.3.12'
