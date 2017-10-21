@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_many :images
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   attr_accessor :image_data
 
